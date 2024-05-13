@@ -25,7 +25,16 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-if ($hassiteconfig) {
+// This tool's required capabilities.
+$capabilities = [
+    'moodle/course:overridecompletion'
+];
+
+// Check if the user has all of the required capabilities.
+$context = context_system::instance();
+$hasaccess = has_all_capabilities($capabilities, $context);
+
+if ($hasaccess) {
     $ADMIN->add('courses', new admin_externalpage(
 	    'tooluploadactivitycompletions',
 	    get_string('pluginname', 'tool_uploadactivitycompletions'),
