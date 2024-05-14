@@ -38,6 +38,8 @@ if ($hasaccess) {
     $ADMIN->add('courses', new admin_externalpage(
 	    'tooluploadactivitycompletions',
 	    get_string('pluginname', 'tool_uploadactivitycompletions'),
-	    new moodle_url('/admin/tool/uploadactivitycompletions/index.php'))
+	    new moodle_url('/admin/tool/uploadactivitycompletions/index.php'),
+		$capabilities
+		)
     );
 }
