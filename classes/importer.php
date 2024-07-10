@@ -112,7 +112,8 @@ class tool_uploadactivitycompletions_importer {
             'username',
             'useridnumber',
             'sectionname',
-            'activityname'
+            'activityname',
+            'datecompleted'
         );
     }
 
@@ -139,7 +140,8 @@ class tool_uploadactivitycompletions_importer {
                 'username' => $data->header2,
                 'useridnumber' => $data->header3,
                 'sectionname' => $data->header4,
-                'activityname' => $data->header5
+                'activityname' => $data->header5,
+                'datecompleted' => $data->header6
             );
         } else {
             return array(
@@ -148,7 +150,8 @@ class tool_uploadactivitycompletions_importer {
                 'username' => 2,
                 'useridnumber' => 3,
                 'sectionname' => 4,
-                'activityname' => 5
+                'activityname' => 5,
+                'datecompleted' => 6
             );
         }
     }
@@ -267,6 +270,7 @@ class tool_uploadactivitycompletions_importer {
               $record->activityname = $this->get_row_data($row, $mapping['activityname']);
 
              // $record->timestamp = $this->get_row_data($row, $mapping['timestamp']);
+              $record->datecompleted = $this->get_row_data($row, $mapping['datecompleted']);
               array_push($records, $record);
         }
         $this->records = $records;
